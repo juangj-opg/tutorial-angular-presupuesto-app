@@ -1,0 +1,26 @@
+<app-cabecera
+ [presupuestoTotal]="getPresupuestoTotal()"
+ [ingresoTotal]="getIngresoTotal()"
+ [egresoTotal]="getEgresoTotal()"
+ [porcentajeTotal]="getPorcentajeTotal()"
+></app-cabecera>
+
+<app-formulario></app-formulario>
+
+<div class="contenedor limpiarEstilos">
+  <div class="ingreso">
+    <h2 class="ingreso_titulo">Ingresos</h2>
+    <app-ingreso *ngFor="let ingresoPadre of ingresos" [ingreso]="ingresoPadre">
+    </app-ingreso>
+  </div>
+
+  <div class="egreso">
+    <h2 class="egreso_titulo">Egresos</h2>
+    <app-egreso
+      *ngFor="let egresoPadre of egresos"
+      [egreso]="egresoPadre"
+      [ingresoTotal]="getIngresoTotal()"
+    ></app-egreso>
+
+  </div>
+</div>
